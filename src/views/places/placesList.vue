@@ -58,15 +58,15 @@
             },
             deletePlace(id) {
                 try {
-                    this.places = Api.Delete('places/', id);
+                    this.places = Api.Delete('places/' + id);
                     this.getPlaces();
                 } catch (e) {
                     console.log(e)
                 }
             },
-            getPlaces() {
+            async getPlaces() {
                 try {
-                    this.places = Api.Get('places');
+                    this.places = await Api.Get('places');
                 } catch (e) {
                     console.log(e)
                 }

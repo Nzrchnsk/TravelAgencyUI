@@ -67,9 +67,10 @@
                     console.log(e)
                 }
             },
-            getPlace() {
+            async getPlace() {
                 try {
-                    this.data = Api.Get('places/' + this.$route.params.placeId);
+                    let {data} = await Api.Get('places/' + this.$route.params.placeId);
+                    this.data = data;
                 } catch (e) {
                     console.log(e)
                 }
