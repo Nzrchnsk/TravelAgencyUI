@@ -80,8 +80,9 @@
             save() {
                 if (this.$route.params.placeId) {
                     this.saveEdit();
+                } else {
+                    this.saveCreate();
                 }
-                this.saveCreate();
             }
         },
     }
