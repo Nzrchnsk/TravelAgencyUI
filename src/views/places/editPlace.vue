@@ -41,35 +41,35 @@
           Api
         },
         methods: {
-            async saveEdit() {
+            saveEdit() {
                 this.invalidValidation = false;
                 if (!this.data.name || !this.data.description || !this.data.address) {
                     this.invalidValidation = true;
                     return
                 }
                 try {
-                    await Api.Put('places/' + this.$route.params.placeId, this.data);
+                    Api.Put('places/' + this.$route.params.placeId, this.data);
                     this.$router.push({name: 'Places'});
                 } catch (e) {
                     console.log(e)
                 }
             },
-            async saveCreate() {
+            saveCreate() {
                 this.invalidValidation = false;
                 if (!this.data.name || !this.data.description || !this.data.address) {
                     this.invalidValidation = true;
                     return
                 }
                 try {
-                    await Api.Post('places', this.data);
+                    Api.Post('places', this.data);
                     this.$router.push({name: 'Places'});
                 } catch (e) {
                     console.log(e)
                 }
             },
-            async getPlace() {
+            getPlace() {
                 try {
-                    let {data} = await Api.Get('places/' + this.$route.params.placeId);
+                    let {data} = Api.Get('places/' + this.$route.params.placeId);
                     this.data = data;
                 } catch (e) {
                     console.log(e)

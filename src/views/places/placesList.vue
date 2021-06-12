@@ -64,9 +64,9 @@
                     console.log(e)
                 }
             },
-            async getPlaces() {
+            getPlaces() {
                 try {
-                    let {data} = await Api.Get('places');
+                    let {data} = Api.Get('places');
                     this.places = data
                 } catch (e) {
                     console.log(e)
