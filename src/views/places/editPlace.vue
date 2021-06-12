@@ -16,6 +16,7 @@
 </template>
 <script>
     import Api from '/src/components/db'
+
     export default {
         data() {
             return {
@@ -34,35 +35,36 @@
             }
             if (this.$route.params.placeId) {
                 this.title = 'Редактирование точки';
+            } else {
+                this.title = 'Создание точки';
             }
-            this.title = 'Создание точки';
         },
         components: {
           Api
         },
         methods: {
-            async saveEdit() {
+            saveEdit() {
                 this.invalidValidation = false;
                 if (!this.data.name || !this.data.description || !this.data.address) {
                     this.invalidValidation = true;
                     return
                 }
                 try {
-                    await Api.Put('places/' + this.$route.params.placeId, this.data);
-                    this.$router.push({name: 'Places'});
+                    Api.Put('places/' + this.$route.params.placeId, this.data);
+                    this.$router.push({name: 'placeList'});
                 } catch (e) {
                     console.log(e)
                 }
             },
-            async saveCreate() {
+            saveCreate() {
                 this.invalidValidation = false;
                 if (!this.data.name || !this.data.description || !this.data.address) {
                     this.invalidValidation = true;
                     return
                 }
                 try {
-                    await Api.Post('places', this.data);
-                    this.$router.push({name: 'Places'});
+                    Api.Post('places', this.data);
+                    this.$router.push({name: 'placeList'});
                 } catch (e) {
                     console.log(e)
                 }

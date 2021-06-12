@@ -3,10 +3,11 @@
     <login></login>
   </div>
   <div v-else>
-    <headerBar/>
-    <div class="container mt-5">
-      <router-view/>
-    </div>
+
+  </div>
+  <headerBar/>
+  <div class="container mt-5">
+    <router-view/>
   </div>
 </template>
 

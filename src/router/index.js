@@ -17,7 +17,7 @@ const routes = [
   },
   {
     path: '/places',
-    name: 'Places',
+    name: 'placeList',
     component: () => import('../views/places/placesList'),
   },
   {
