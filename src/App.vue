@@ -17,9 +17,7 @@
       headerBar,
     },
     mounted() {
-      if (localStorage.getItem('auth')) {
-        this.$router.push({name: 'Home'});
-      } else {
+      if (!localStorage.getItem('auth')) {
         this.$router.push({name: 'login'});
       }
     }
