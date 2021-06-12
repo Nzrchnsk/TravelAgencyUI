@@ -21,6 +21,16 @@ const routes = [
     component: () => import('../views/places/placesList'),
   },
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/auth/login'),
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: () => import('../views/auth/registration'),
+  },
+  {
     path: '/places/:placeId',
     name: 'placeEdit',
     component: () => import('../views/places/editPlace'),

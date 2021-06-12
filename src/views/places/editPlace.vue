@@ -2,15 +2,13 @@
     <div class="card">
     <div class="card-header">{{title}}</div>
     <div class="card-body">
-       <form>
-           <input type="text" required v-model="data.name" class="form-control mb-2" placeholder="Название" aria-label="Username" aria-describedby="basic-addon1">
-           <input type="text" required v-model="data.description" class="form-control mb-2" placeholder="Описание" aria-label="Username" aria-describedby="basic-addon1">
-           <input type="text" required v-model="data.address" class="form-control mb-2" placeholder="Адрес" aria-label="Username" aria-describedby="basic-addon1">
-           <div v-if="invalidValidation" style="color: red" class="mb-2"><label><small>Пожалуйста заполните все поля</small></label></div>
-           <button type="button" @click="save" class="btn btn-success">
-               Сохранить
-           </button>
-       </form>
+        <input type="text" required v-model="data.name" class="form-control mb-2" placeholder="Название" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" required v-model="data.description" class="form-control mb-2" placeholder="Описание" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" required v-model="data.address" class="form-control mb-2" placeholder="Адрес" aria-label="Username" aria-describedby="basic-addon1">
+        <div v-if="invalidValidation" style="color: red" class="mb-2"><label><small>Пожалуйста заполните все поля</small></label></div>
+        <button type="button" @click="save" class="btn btn-success">
+            Сохранить
+        </button>
     </div>
     </div>
 </template>

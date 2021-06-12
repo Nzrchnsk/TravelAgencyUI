@@ -1,31 +1,26 @@
 <template>
-  <div v-if="!authCheck">
-    <login></login>
-  </div>
-  <div v-else>
-
-  </div>
   <headerBar/>
-  <div class="container mt-5">
-    <router-view/>
+  <div>
+    <div class="container mt-5">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
   import headerBar from './views/components/headerComponent';
-  import login from './views/auth/login';
 
   export default {
     name: 'App',
 
     components: {
       headerBar,
-      login
     },
-    computed: {
-      authCheck() {
-        return localStorage.getItem('auth');
-
+    mounted() {
+      if (localStorage.getItem('auth')) {
+        this.$router.push({name: 'Home'});
+      } else {
+        this.$router.push({name: 'login'});
       }
     }
   }

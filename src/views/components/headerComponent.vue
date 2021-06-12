@@ -11,9 +11,31 @@
                 </ul>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-warning me-2">Войти как админ</button>
+                    <button type="button" @click="login" v-if="!auth" class="btn btn-outline-warning me-2">Авторизация</button>
+                    <button type="button" @click="registration" v-if="!auth" class="btn btn-warning me-2">Регистрация</button>
+                    <button type="button" v-if="auth" @click="logout" class="btn btn-outline-warning me-2">Выйти</button>
                 </div>
             </div>
         </div>
     </header>
 </template>
+<script>
+    export default {
+        methods: {
+            login() {
+                this.$router.push({name: 'login'});
+            },
+            registration() {
+                this.$router.push({name: 'registration'});
+            },
+            logout() {
+                localStorage.clear();
+            },
+        },
+        computed: {
+          auth() {
+              return localStorage.getItem('auth');
+          },
+        },
+    }
+</script>
