@@ -7,7 +7,7 @@
            <input type="text" required v-model="data.description" class="form-control mb-2" placeholder="Описание" aria-label="Username" aria-describedby="basic-addon1">
            <input type="text" required v-model="data.address" class="form-control mb-2" placeholder="Адрес" aria-label="Username" aria-describedby="basic-addon1">
            <div v-if="invalidValidation" style="color: red" class="mb-2"><label><small>Пожалуйста заполните все поля</small></label></div>
-           <button type="submit" @click="save" class="btn btn-success">
+           <button type="button" @click="save" class="btn btn-success">
                Сохранить
            </button>
        </form>
@@ -43,27 +43,27 @@
           Api
         },
         methods: {
-            saveEdit() {
+            async saveEdit() {
                 this.invalidValidation = false;
                 if (!this.data.name || !this.data.description || !this.data.address) {
                     this.invalidValidation = true;
                     return
                 }
                 try {
-                    Api.Put('places/' + this.$route.params.placeId, this.data);
+                    await Api.Put('places/' + this.$route.params.placeId, this.data);
                     this.$router.push({name: 'placeList'});
                 } catch (e) {
                     console.log(e)
                 }
             },
-            saveCreate() {
+            async saveCreate() {
                 this.invalidValidation = false;
                 if (!this.data.name || !this.data.description || !this.data.address) {
                     this.invalidValidation = true;
                     return
                 }
                 try {
-                    Api.Post('places', this.data);
+                    await Api.Post('places', this.data);
                     this.$router.push({name: 'placeList'});
                 } catch (e) {
                     console.log(e)
