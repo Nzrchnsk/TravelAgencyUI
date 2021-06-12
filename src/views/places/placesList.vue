@@ -56,17 +56,17 @@
             addPlace() {
                 this.$router.push({name: 'placeAdd'});
             },
-            deletePlace(id) {
+            async deletePlace(id) {
                 try {
-                    this.places = Api.Delete('places/' + id);
+                    this.places = await Api.Delete('places/' + id);
                     this.getPlaces();
                 } catch (e) {
                     console.log(e)
                 }
             },
-            getPlaces() {
+            async getPlaces() {
                 try {
-                    let {data} = Api.Get('places');
+                    let {data} = await Api.Get('places');
                     this.places = data
                 } catch (e) {
                     console.log(e)

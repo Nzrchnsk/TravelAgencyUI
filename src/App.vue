@@ -1,19 +1,32 @@
 <template>
-  <headerBar/>
-  <div class="container mt-5">
-    <router-view/>
+  <div v-if="!authCheck">
+    <login></login>
+  </div>
+  <div v-else>
+    <headerBar/>
+    <div class="container mt-5">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
   import headerBar from './views/components/headerComponent';
+  import login from './views/auth/login';
 
   export default {
     name: 'App',
 
     components: {
       headerBar,
+      login
     },
+    computed: {
+      authCheck() {
+        return localStorage.getItem('auth');
+
+      }
+    }
   }
 </script>
 <style>
