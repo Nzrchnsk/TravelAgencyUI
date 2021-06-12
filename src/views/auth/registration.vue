@@ -8,7 +8,7 @@
             <div v-if="invalidValidation" style="color: red" class="mb-2"><label><small>Пожалуйста заполните все поля</small></label></div>
             <div v-if="invalidData" style="color: red" class="mb-2"><label><small>Неверные данные</small></label></div>
             <button type="button" @click="registration" class="btn btn-success">
-                Сохранить
+                Зарегистрироваться
             </button>
         </div>
     </div>
