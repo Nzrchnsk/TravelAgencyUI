@@ -48,9 +48,7 @@
                     return
                 }
                 try {
-                    this.data = await Api.Put('places/' + this.$route.params.placeId, this.data).then(
-                        this.$router.push({name: 'Places'})
-                    );
+                    this.data = await Api.Put('places/' + this.$route.params.placeId, this.data).then(this.$router.push({name: 'Places'}));
                 } catch (e) {
                     console.log(e)
                 }
@@ -62,8 +60,7 @@
                     return
                 }
                 try {
-                    this.data = await Api.Post('places', this.data);
-                    this.$router.push({name: 'Places'});
+                    this.data = await Api.Post('places', this.data).then(this.$router.push({name: 'Places'}));
                 } catch (e) {
                     console.log(e)
                 }
