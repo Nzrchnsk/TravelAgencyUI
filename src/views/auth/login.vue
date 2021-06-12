@@ -41,7 +41,7 @@
                     let {data} = await Api.Post('account/login', this.data);
                     localStorage.setItem('auth', data.accessToken)
                     localStorage.setItem('role', data.role)
-                    this.$router.push({name: 'Home'});
+                    window.location = '/home';
                 } catch (e) {
                     this.invalidData = true;
                     console.log(e)

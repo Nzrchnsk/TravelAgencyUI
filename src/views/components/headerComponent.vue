@@ -30,7 +30,7 @@
             },
             logout() {
                 localStorage.clear();
-                window.location('/login');
+                window.location = '/login';
             },
         },
         computed: {
