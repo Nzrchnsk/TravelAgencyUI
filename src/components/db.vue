@@ -12,24 +12,28 @@ async function Get(api, params) {
       }
     });
   }
-  const data = await axios.get(linkFull);
-  return data;
+  await axios.get(linkFull).then((data) => {
+      return data;
+  });
 }
 
 async function Post(api, value) {
   let linkFull = link + api;
-  const data = await axios.post(linkFull, value);
-  return data;
+  await axios.post(linkFull, value).then((data) => {
+      return data;
+  });
 }
 async function Put(api, value) {
   let linkFull = link + api;
-  const data = await axios.put(linkFull, value);
-  return data;
+  await axios.put(linkFull, value).then((data) => {
+      return data;
+  });
 }
 async function Delete(api) {
   let linkFull = link + api;
-  const data = await axios.delete(linkFull);
-  return data;
+  await axios.delete(linkFull).then((data) => {
+      return data;
+  });
 }
 export default {
   Get,
