@@ -30,7 +30,7 @@
             },
             logout() {
                 localStorage.clear();
-                this.$router.push({name: 'login'});
+                window.location('/login');
             },
         },
         computed: {
