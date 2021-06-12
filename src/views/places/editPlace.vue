@@ -48,8 +48,9 @@
                     return
                 }
                 try {
-                    this.data = Api.Put('places/' + this.$route.params.placeId, this.data);
-                    this.$router.push({name: 'Places'});
+                    this.data = Api.Put('places/' + this.$route.params.placeId, this.data).then(
+                        this.$router.push({name: 'Places'})
+                    );
                 } catch (e) {
                     console.log(e)
                 }
@@ -61,8 +62,9 @@
                     return
                 }
                 try {
-                    this.data = Api.Post('places', this.data);
-                    this.$router.push({name: 'Places'});
+                    this.data = Api.Post('places', this.data).then(
+                        this.$router.push({name: 'Places'})
+                    );
                 } catch (e) {
                     console.log(e)
                 }
