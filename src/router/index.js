@@ -65,6 +65,12 @@ const routes = [
     component: () => import('../views/users/userssList'),
     props: true,
   },
+  {
+    path: '/buy_ticket/:tripId',
+    name: 'buyTicket',
+    component: () => import('../views/trips/buyTicket'),
+    props: true,
+  },
 ]
 
 const router = createRouter({

@@ -12,7 +12,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr  v-for="item in trips">
+                <tr  v-for="item in users">
                     <td>{{item.userName}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.role}}</td>

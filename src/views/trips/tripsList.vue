@@ -26,6 +26,10 @@
                     <td>{{item.totalTicket}}</td>
                     <td>{{item.price}}</td>
                     <td>
+                        <button type="button" @click="buyTicket(item.id)" class="btn btn-success btn-sm">
+                            Купить
+                        </button>
+
                         <button type="button" @click="editTrip(item.id)" class="btn btn-primary btn-sm me-2">
                            Редактировать
                         </button>
@@ -58,6 +62,9 @@
             this.getTrips();
         },
         methods: {
+            buyTicket(id) {
+                this.$router.push({name: 'buyTicket', params: {tripId: id}});
+            },
             editTrip(id) {
                 this.$router.push({name: 'tripEdit', params: {tripId: id}});
             },
