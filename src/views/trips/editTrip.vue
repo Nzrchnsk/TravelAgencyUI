@@ -109,8 +109,8 @@
                 try {
                     let {data} = await Api.Get('trips/' + this.$route.params.tripId);
                     this.data = data;
-                    this.data.arrivalDate = this.moment(this.data.arrivalDate).format('YYYY-MM-DD');
-                    this.data.departureDate = this.moment(this.data.departureDate).format('YYYY-MM-DD');
+                    this.data.arrivalDate = new Date( this.data.arrivalDate);
+                    this.data.departureDate = new Date( this.data.departureDate);
                 } catch (e) {
                     console.log(e)
                 }
