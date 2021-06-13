@@ -2,18 +2,18 @@
     <div class="card">
     <div class="card-header">{{title}}</div>
     <div class="card-body">
-        <select v-model="data.departurePlace" class="form-select mb-2" aria-label="Default select example">
+        <select v-model="data.DeparturePlaceId" class="form-select mb-2" aria-label="Default select example">
             <option value="" selected disabled>Выберите место отправления</option>
             <option v-for="value in places" :value="value.id">{{value.name}}</option>
         </select>
-        <select v-model="data.arrivalPlace" required class="form-select mb-2" aria-label="Default select example">
+        <select v-model="data.ArrivalPlaceId" required class="form-select mb-2" aria-label="Default select example">
             <option value="" selected disabled>Выберите место прибытия</option>
             <option v-for="value in places" :value="value.id">{{value.name}}</option>
         </select>
-        <datepicker v-model="data.departureDate" required class="form-select mb-2" placeholder="Выберите дату отправления"></datepicker>
-        <datepicker v-model="data.arrivalDate" required class="form-select mb-2" placeholder="Выберите дату прибытия"></datepicker>
-        <input v-model="data.totalTickets" type="number" required class="form-control mb-2" placeholder="Количество билетов">
-        <input v-model="data.price" type="number" required class="form-control mb-2" placeholder="Стоимость одного места">
+        <datepicker v-model="data.DepartureDate" required class="form-select mb-2" placeholder="Выберите дату отправления"></datepicker>
+        <datepicker v-model="data.ArrivalDate" required class="form-select mb-2" placeholder="Выберите дату прибытия"></datepicker>
+        <input v-model="data.TotalTicket" type="number" required class="form-control mb-2" placeholder="Количество билетов">
+        <input v-model="data.Price" type="number" required class="form-control mb-2" placeholder="Стоимость одного места">
         <div v-if="invalidValidation" style="color: red" class="mb-2"><label><small>Пожалуйста заполните все поля</small></label></div>
         <div v-if="placesInvalid" style="color: red" class="mb-2"><label><small>Место отправления и место прибытия не должны совпадать</small></label></div>
         <button type="button" @click="save" class="btn btn-success">
@@ -34,12 +34,12 @@
                 placesInvalid : false,
                 title: '',
                 data : {
-                    departurePlace: "",
-                    arrivalPlace: "",
-                    departureDate: null,
-                    arrivalDate: null,
-                    totalTickets: null,
-                    price: null,
+                    DeparturePlaceId : "",
+                    ArrivalPlaceId : "",
+                    DepartureDate : null,
+                    ArrivalDate : null,
+                    TotalTicket : null,
+                    Price: null,
                 },
             }
         },
@@ -70,11 +70,11 @@
             async editTrip() {
                 this.invalidValidation = false;
                 this.placesInvalid = false;
-                if (!this.data.departurePlace || !this.data.arrivalPlace || !this.data.departureDate || !this.data.arrivalDate || !this.data.totalTickets || !this.data.price) {
+                if (!this.data.DeparturePlaceId || !this.data.ArrivalPlaceId || !this.data.DepartureDate || !this.data.ArrivalDate || !this.data.TotalTicket || !this.data.Price) {
                     this.invalidValidation = true;
                     return
                 }
-                if (this.data.departurePlace === this.data.arrivalPlace) {
+                if (this.data.DeparturePlaceId === this.data.ArrivalPlaceId) {
                     this.placesInvalid = true;
                     return
                 }
@@ -88,11 +88,11 @@
             async createTrip() {
                 this.invalidValidation = false;
                 this.placesInvalid = false;
-                if (!this.data.departurePlace || !this.data.arrivalPlace || !this.data.departureDate || !this.data.arrivalDate || !this.data.totalTickets || !this.data.price) {
+                if (!this.data.DeparturePlaceId || !this.data.ArrivalPlaceId || !this.data.DepartureDate || !this.data.ArrivalDate || !this.data.TotalTicket || !this.data.Price) {
                     this.invalidValidation = true;
                     return
                 }
-                if (this.data.departurePlace === this.data.arrivalPlace) {
+                if (this.data.DeparturePlaceId === this.data.ArrivalPlaceId) {
                     this.placesInvalid = true;
                     return
                 }
