@@ -60,7 +60,7 @@
                     this.tickets = data;
                     for(let i = 0; i < this.tickets.length; i++) {
                         this.tickets[i].trip.departureDate = moment(this.tickets[i].trip.departureDate).format('YYYY-MM-DD');
-                        this.tickets[i].tractName = this.tickets[i].trip.departPlace.name + ' - ' + this.tickets[i].trip.arrivePlace.name;
+                        this.tickets[i].tractName = this.tickets[i].trip.departurePlace.name + ' - ' + this.tickets[i].trip.arrivalPlace.name;
                     }
                 } catch (e) {
                     console.log(e)
