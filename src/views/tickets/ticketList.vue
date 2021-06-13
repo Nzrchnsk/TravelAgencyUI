@@ -1,0 +1,65 @@
+<template>
+    <div class="card">
+        <div class="card-header">Билеты</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Номер билета</th>
+                    <th scope="col">Пассажир</th>
+                    <th scope="col">Маршрут</th>
+                    <th scope="col">Дата поездки</th>
+                    <th scope="col">Действия</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  v-for="item in tickets">
+<!--                    <td>{{item.number}}</td>-->
+<!--                    <td>{{item.user}}</td>-->
+<!--                    <td>{{item.address}}</td>-->
+                    <td>
+                        <button type="button" @click="deleteTicket(item.id)" class="btn btn-danger btn-sm">
+                            Удалить
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
+<script>
+    import Api from '/src/components/db'
+    export default {
+        name: "Tickets",
+        data() {
+            return {
+                tickets: [],
+            };
+        },
+        components: {
+            Api,
+        },
+        mounted() {
+            this.getTickets();
+        },
+        methods: {
+            async deleteTicket(id) {
+                try {
+                    this.tickets = await Api.Delete('tickets/' + id);
+                    this.getTickets();
+                } catch (e) {
+                    console.log(e)
+                }
+            },
+            async getTickets() {
+                try {
+                    let {data} = await Api.Get('tickets');
+                    this.tickets = data
+                } catch (e) {
+                    console.log(e)
+                }
+            },
+        },
+    };
+</script>

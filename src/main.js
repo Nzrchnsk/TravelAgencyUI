@@ -14,7 +14,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 axios.interceptors.request.use(function (config) {
     config.headers.common = {
-        'accessToken': `Bearer ${localStorage.getItem('auth')}`,
+        'Authorization': `Bearer ${localStorage.getItem('auth')}`,
     };
     return config;
 });
