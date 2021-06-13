@@ -25,6 +25,7 @@
 <script>
     import Datepicker from 'vue3-datepicker'
     import Api from '/src/components/db'
+    import moment from 'moment';
 
     export default {
         data() {
@@ -57,6 +58,7 @@
         components: {
             Api,
             Datepicker,
+            moment
         },
         methods: {
             async getPlaces() {
@@ -107,6 +109,8 @@
                 try {
                     let {data} = await Api.Get('trips/' + this.$route.params.tripId);
                     this.data = data;
+                    this.data.arrivalDate = this.moment(this.data.arrivalDate).format('YYYY-MM-DD');
+                    this.data.departureDate = this.moment(this.data.departureDate).format('YYYY-MM-DD');
                 } catch (e) {
                     console.log(e)
                 }
