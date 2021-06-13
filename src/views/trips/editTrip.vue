@@ -34,12 +34,12 @@
                 placesInvalid : false,
                 title: '',
                 data : {
-                    DeparturePlaceId : "",
-                    ArrivalPlaceId : "",
-                    DepartureDate : null,
-                    ArrivalDate : null,
-                    TotalTicket : null,
-                    Price: null,
+                    departurePlaceId : "",
+                    arrivalPlaceId : "",
+                    departureDate : null,
+                    arrivalDate : null,
+                    totalTicket : null,
+                    price: null,
                 },
             }
         },

@@ -23,7 +23,7 @@
                     <td>{{item.arrivalPlace}}</td>
                     <td>{{item.departureDate}}</td>
                     <td>{{item.arrivalDate}}</td>
-                    <td>{{item.totalTickets}}</td>
+                    <td>{{item.totalTicket}}</td>
                     <td>{{item.price}}</td>
                     <td>
                         <button type="button" @click="editTrip(item.id)" class="btn btn-primary btn-sm me-2">
