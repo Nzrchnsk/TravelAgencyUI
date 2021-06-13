@@ -17,7 +17,7 @@
                     <td>{{item.number}}</td>
                     <td>{{item.user.userName}}</td>
                     <td>{{item.tractName}}</td>
-                    <td>{{item.departureDate}}</td>
+                    <td>{{item.trip.departureDate}}</td>
                     <td>
                         <button type="button" v-if="admin" @click="deleteTicket(item.id)" class="btn btn-danger btn-sm">
                             Удалить
@@ -59,7 +59,7 @@
                     let {data} = await Api.Get('tickets');
                     this.tickets = data;
                     for(let i = 0; i < this.tickets.length; i++) {
-                        this.tickets[i].departureDate = moment(this.tickets[i].departureDate).format('YYYY-MM-DD');
+                        this.tickets[i].trip.departureDate = moment(this.tickets[i].trip.departureDate).format('YYYY-MM-DD');
                         this.tickets[i].tractName = this.tickets[i].trip.departPlace.name + ' - ' + this.tickets[i].trip.arrivePlace.name;
                     }
                 } catch (e) {

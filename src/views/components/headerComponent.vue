@@ -9,8 +9,8 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li v-if="auth && admin"><a href="/places" class="nav-link px-2 text-white">Точки маршрута</a></li>
                     <li v-if="auth"><a href="/trips" class="nav-link px-2 text-white">Поездки</a></li>
-                    <li v-if="auth"><a href="/users" class="nav-link px-2 text-white">Билеты</a></li>
-                    <li v-if="auth && admin"><a href="/tickets" class="nav-link px-2 text-white">Пользователи</a></li>
+                    <li v-if="auth"><a href="/tickets" class="nav-link px-2 text-white">Билеты</a></li>
+                    <li v-if="auth && admin"><a href="/users" class="nav-link px-2 text-white">Пользователи</a></li>
                 </ul>
 
                 <div class="text-end">
