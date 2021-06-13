@@ -4,11 +4,11 @@
     <div class="card-body">
         <select v-model="data.departurePlace" class="form-select mb-2" aria-label="Default select example">
             <option value="" selected disabled>Выберите место отправления</option>
-            <option v-for="value in palces" :value="value.value">{{value.text}}</option>
+            <option v-for="value in places" :value="value.id">{{value.name}}</option>
         </select>
         <select v-model="data.arrivalPlace" required class="form-select mb-2" aria-label="Default select example">
             <option value="" selected disabled>Выберите место прибытия</option>
-            <option v-for="value in places" :value="value.value">{{value.text}}</option>
+            <option v-for="value in places" :value="value.id">{{value.name}}</option>
         </select>
         <datepicker v-model="data.departureDate" required class="form-select mb-2" placeholder="Выберите дату отправления"></datepicker>
         <datepicker v-model="data.arrivalDate" required class="form-select mb-2" placeholder="Выберите дату прибытия"></datepicker>
@@ -62,7 +62,7 @@
             async getPlaces() {
                 try {
                     let {data} = await Api.Get('places');
-                    this.places = data
+                    this.places = data;
                 } catch (e) {
                     console.log(e)
                 }
