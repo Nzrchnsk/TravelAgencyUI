@@ -23,7 +23,7 @@
                     <td>{{item.arrivalPlace}}</td>
                     <td>{{item.departureDate}}</td>
                     <td>{{item.arrivalDate}}</td>
-                    <td>{{item.totalTicket}}</td>
+                    <td>{{item.freePlaces}}</td>
                     <td>{{item.price}}</td>
                     <td>
                         <button v-if="admin" type="button" @click="buyTicket(item.id)" class="btn btn-success  me-2 btn-sm">
