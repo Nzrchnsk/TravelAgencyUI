@@ -26,7 +26,7 @@
                     <td>{{item.freePlaces}}</td>
                     <td>{{item.price}}</td>
                     <td>
-                        <button v-if="admin" type="button" @click="buyTicket(item.id)" class="btn btn-success  me-2 btn-sm">
+                        <button :disabled="item.freePlaces === 0" v-if="admin" type="button" @click="buyTicket(item.id)" class="btn btn-success  me-2 btn-sm">
                             Купить
                         </button>
 
