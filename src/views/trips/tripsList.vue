@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">Поездки</div>
         <div class="card-body">
-            <button type="button" @click="addTrip" class="btn btn-secondary btn-sm">
+            <button type="button" v-if="admin" @click="addTrip" class="btn btn-secondary btn-sm">
                 Добавить поездку
             </button>
             <table class="table">
@@ -26,15 +26,15 @@
                     <td>{{item.totalTicket}}</td>
                     <td>{{item.price}}</td>
                     <td>
-                        <button type="button" @click="buyTicket(item.id)" class="btn btn-success  me-2 btn-sm">
+                        <button v-if="admin" type="button" @click="buyTicket(item.id)" class="btn btn-success  me-2 btn-sm">
                             Купить
                         </button>
 
-                        <button type="button" @click="editTrip(item.id)" class="btn btn-primary btn-sm me-2">
+                        <button v-if="admin" type="button" @click="editTrip(item.id)" class="btn btn-primary btn-sm me-2">
                            Редактировать
                         </button>
 
-                        <button type="button" @click="deleteTrip(item.id)" class="btn btn-danger btn-sm">
+                        <button v-if="admin" type="button" @click="deleteTrip(item.id)" class="btn btn-danger btn-sm">
                             Удалить
                         </button>
                     </td>
@@ -91,6 +91,11 @@
                     console.log(e)
                 }
             },
+        },
+        computed: {
+          admin() {
+              return localStorage.getItem('role') === 'Admin'
+          },
         },
     };
 </script>

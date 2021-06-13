@@ -14,11 +14,12 @@
                 </thead>
                 <tbody>
                 <tr  v-for="item in tickets">
-<!--                    <td>{{item.number}}</td>-->
-<!--                    <td>{{item.user}}</td>-->
-<!--                    <td>{{item.address}}</td>-->
+                    <td>{{item.number}}</td>
+                    <td>{{item.user.userName}}</td>
+                    <td>{{item.tractName}}</td>
+                    <td>{{item.departureDate}}</td>
                     <td>
-                        <button type="button" @click="deleteTicket(item.id)" class="btn btn-danger btn-sm">
+                        <button type="button" v-if="admin" @click="deleteTicket(item.id)" class="btn btn-danger btn-sm">
                             Удалить
                         </button>
                     </td>
@@ -30,6 +31,7 @@
 </template>
 <script>
     import Api from '/src/components/db'
+    import moment from "moment";
     export default {
         name: "Tickets",
         data() {
@@ -55,10 +57,19 @@
             async getTickets() {
                 try {
                     let {data} = await Api.Get('tickets');
-                    this.tickets = data
+                    this.tickets = data;
+                    for(let i = 0; i < this.tickets.length; i++) {
+                        this.tickets[i].departureDate = moment(this.tickets[i].departureDate).format('YYYY-MM-DD');
+                        this.tickets[i].tractName = this.tickets[i].trip.departPlace.name + ' - ' + this.tickets[i].trip.arrivePlace.name;
+                    }
                 } catch (e) {
                     console.log(e)
                 }
+            },
+        },
+        computed: {
+            admin() {
+                return localStorage.getItem('role') === 'Admin'
             },
         },
     };
