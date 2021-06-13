@@ -16,11 +16,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/places',
-    name: 'placeList',
-    component: () => import('../views/places/placesList'),
-  },
-  {
     path: '/login',
     name: 'login',
     component: () => import('../views/auth/login'),
@@ -29,6 +24,11 @@ const routes = [
     path: '/registration',
     name: 'registration',
     component: () => import('../views/auth/registration'),
+  },
+  {
+    path: '/places',
+    name: 'placeList',
+    component: () => import('../views/places/placesList'),
   },
   {
     path: '/places/:placeId',
@@ -40,6 +40,23 @@ const routes = [
     path: '/places/add',
     name: 'placeAdd',
     component: () => import('../views/places/editPlace'),
+    props: true,
+  },
+  {
+    path: '/trips',
+    name: 'tripsList',
+    component: () => import('../views/trips/tripsList'),
+  },
+  {
+    path: '/trips/:tripId',
+    name: 'tripEdit',
+    component: () => import('../views/trips/editTrip'),
+    props: true,
+  },
+  {
+    path: '/trips/add',
+    name: 'tripAdd',
+    component: () => import('../views/trips/editTrip'),
     props: true,
   },
 ]

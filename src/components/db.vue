@@ -18,7 +18,12 @@ async function Get(api, params) {
 
 async function Post(api, value) {
   let linkFull = link + api;
-  const data = await axios.post(linkFull, value);
+  const data = await axios.post(linkFull, value).catch((e) => {
+      if (e.response.status === 401) {
+          localStorage.clear();
+          window.location = '/login';
+      }
+  });
   return data;
 }
 async function Put(api, value) {

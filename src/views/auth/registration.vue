@@ -1,15 +1,23 @@
 <template>
-    <div class="card">
-        <div class="card-header">Регистрация</div>
-        <div class="card-body">
-            <input type="email" required v-model="data.email" class="form-control mb-2" placeholder="E-mail">
-            <input type="text" required v-model="data.userName" class="form-control mb-2" placeholder="Имя пользователя">
-            <input type="password" required v-model="data.password" class="form-control mb-2" placeholder="Пароль">
-            <div v-if="invalidValidation" style="color: red" class="mb-2"><label><small>Пожалуйста заполните все поля</small></label></div>
-            <div v-if="invalidData" style="color: red" class="mb-2"><label><small>Неверные данные</small></label></div>
-            <button type="button" @click="registration" class="btn btn-success">
-                Зарегистрироваться
-            </button>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+            <div class="fadeIn first">
+                <h3 class="h3 mb-3 font-weight-normal">Регистрация</h3>
+            </div>
+
+            <form>
+                <input type="email" required v-model="data.email" id="email" class="fadeIn second" name="login" placeholder="E-mail">
+                <input type="text" required v-model="data.userName" id="login" class="fadeIn second" name="login" placeholder="Имя пользователя">
+                <input type="password" required v-model="data.password" id="password" class="fadeIn third" name="login" placeholder="Пароль">
+                <div v-if="invalidValidation" class="mb-2 validation-failed"><label><small>Пожалуйста заполните все поля</small></label></div>
+                <div v-if="invalidData" class="mb-2 validation-failed"><label><small>Неверные данные</small></label></div>
+                <input type="button" @click="registration" class="fadeIn fourth" value="Зарегистрироваться">
+            </form>
+
+            <div id="formFooter">
+            </div>
+
         </div>
     </div>
 </template>
@@ -52,8 +60,3 @@
         },
     }
 </script>
-<style>
-    .card-body {
-        height: 50% !important;
-    }
-</style>
