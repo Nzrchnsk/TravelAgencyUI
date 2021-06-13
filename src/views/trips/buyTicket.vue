@@ -28,7 +28,7 @@
                         <hr>
                         <div class="row lower">
                             <div class="col text-left">Стоимость</div>
-                            <div class="col text-right">{{trip ? trip.price : ''}}</div>
+                            <div class="col text-right">{{trip ? trip.price : ''}} руб.</div>
                         </div>
                         <div class="row lower">
                         </div> <button type="button" class="btn-pay" data-bs-toggle="modal" data-bs-target="#exampleModal">Оплатить</button>
