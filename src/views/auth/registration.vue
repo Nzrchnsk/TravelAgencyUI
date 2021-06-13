@@ -51,7 +51,7 @@
                     let {data} = await Api.Post('account/registration', this.data);
                     localStorage.setItem('auth', data.accessToken)
                     localStorage.setItem('role', data.role)
-                    window.location = '/';
+                    window.location = '/trips';
                 } catch (e) {
                     this.invalidData = true;
                     console.log(e)

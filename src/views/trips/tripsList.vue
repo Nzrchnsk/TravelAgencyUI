@@ -26,7 +26,7 @@
                     <td>{{item.totalTicket}}</td>
                     <td>{{item.price}}</td>
                     <td>
-                        <button type="button" @click="buyTicket(item.id)" class="btn btn-success btn-sm">
+                        <button type="button" @click="buyTicket(item.id)" class="btn btn-success  me-2 btn-sm">
                             Купить
                         </button>
 
