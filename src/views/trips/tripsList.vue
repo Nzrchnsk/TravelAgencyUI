@@ -84,8 +84,8 @@
                     let {data} = await Api.Get('trips');
                     this.trips = data
                     for(let i = 0; i < this.trips.length; i++) {
-                        this.trips[0].departureDate = moment(this.trips[0].departureDate).format('YYYY-MM-DD');
-                        this.trips[0].arrivalDate = moment(this.trips[0].arrivalDate).format('YYYY-MM-DD');
+                        this.trips[i].departureDate = moment(this.trips[i].departureDate).format('YYYY-MM-DD');
+                        this.trips[i].arrivalDate = moment(this.trips[i].arrivalDate).format('YYYY-MM-DD');
                     }
                 } catch (e) {
                     console.log(e)
