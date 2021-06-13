@@ -59,6 +59,12 @@ const routes = [
     component: () => import('../views/trips/editTrip'),
     props: true,
   },
+  {
+    path: '/users',
+    name: 'usersList',
+    component: () => import('../views/users/userssList'),
+    props: true,
+  },
 ]
 
 const router = createRouter({
