@@ -46,26 +46,7 @@
         name: "Trips",
         data() {
             return {
-                trips: [
-                    {
-                        'id'    : 1,
-                        'departurePlace' : 1,
-                        'arrivalPlace' : 1,
-                        'departureDate' : 1,
-                        'arrivalDate' : 1,
-                        'totalTickets' : 1,
-                        'price' : 1,
-                    },
-                    {
-                        'id' : 2,
-                        'departurePlace' : 2,
-                        'arrivalPlace' : 2,
-                        'departureDate' : 2,
-                        'arrivalDate' : 2,
-                        'totalTickets' : 2,
-                        'price' : 2,
-                    }
-                ],
+                trips: [],
             };
         },
         components: {
@@ -82,20 +63,20 @@
                 this.$router.push({name: 'tripAdd'});
             },
             async deleteTrip(id) {
-                // try {
-                //     this.trips = await Api.Delete('trips/' + id);
-                //     this.getTrips();
-                // } catch (e) {
-                //     console.log(e)
-                // }
+                try {
+                    this.trips = await Api.Delete('trips/' + id);
+                    this.getTrips();
+                } catch (e) {
+                    console.log(e)
+                }
             },
             async getTrips() {
-                // try {
-                //     let {data} = await Api.Get('trips');
-                //     this.trips = data
-                // } catch (e) {
-                //     console.log(e)
-                // }
+                try {
+                    let {data} = await Api.Get('trips');
+                    this.trips = data
+                } catch (e) {
+                    console.log(e)
+                }
             },
         },
     };
