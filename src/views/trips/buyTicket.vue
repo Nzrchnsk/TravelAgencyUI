@@ -73,7 +73,7 @@
                     return
                 }
                 try {
-                    this.trips = await Api.Post('trips/', {tripId: this.$route.params.tripId});
+                    this.trips = await Api.Post('tickets/', {tripId: this.$route.params.tripId});
                 } catch (e) {
                     console.log(e)
                 }
