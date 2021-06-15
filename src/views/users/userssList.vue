@@ -77,6 +77,11 @@
             this.getUsers();
         },
         methods: {
+            modalClear() {
+                this.modal.user = null;
+                this.modal.trip = null;
+                this.modal.text = '';
+            },
             recommendedTrip(user_id) {
                 this.modal.user = user_id;
                 this.getTrips();
@@ -94,6 +99,7 @@
                 } catch (e) {
                     console.log(e)
                 }
+                this.modalClear();
             },
             async deleteUser(id) {
                 try {
